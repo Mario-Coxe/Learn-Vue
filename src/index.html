@@ -13,26 +13,36 @@
   </head>
   <body>
     <div class="container">
-      <div>
-        <label for="name">Nome</label>
-        <input
-          type="text"
-          class="form-control"
-          id="name"
-          placeholder="Nome"
-          class="form-group"
-        />
+        <h1>Comentários</h1>
+        <hr>
+      <div class="form-todo form-group">
+        <p>
+          <input
+            type="text"
+            id="name"
+            placeholder="Nome"
+            class="form-control"
+          />
+        </p>
+        <p>
+          <textarea
+            class="form-control"
+            placeholder="Comentário"
+            class="form-control"
+          >
+          </textarea>
+        </p>
+        <button type="submit" class="btn btn-primary">Comentário</button>
       </div>
-      <div class="form-group">
-        <label for="comment">Comentário</label>
-        <textarea
-          class="form-control"
-          placeholder="Comentário"
-          class="form-group"
-        >
-        </textarea>
+      <div class="list-group">
+        <div class="list-group-item">
+          <span class="comment_autor">Autor: <strong>Mário Coxe</strong></span>
+          <p>Mensagem de test</p>
+          <div>
+            <a href="#" title="Excluir">Excluir</a>
+          </div>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Comentário</button>
     </div>
   </body>
 </html>
