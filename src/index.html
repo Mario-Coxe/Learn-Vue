@@ -6,9 +6,9 @@
   </head>
   <body>
     <h1>Methods Example</h1>
+
     <div id="app">
-      <button v-on:click="writeText">clique aqui</button>
-      <p>{{text}}</p>
+      <textarea v-on:input="writeText" placeholder="Start writing.."></textarea>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -17,12 +17,13 @@
       const app = Vue.createApp({
         data() {
           return {
-            text: ''
+            text: "",
           };
         },
         methods: {
-          writeText() {
-            this.text = "Hello Wrold!";
+          writeText(event) {
+            this.text = event.target.value;
+            console.log(this.text);
           },
         },
       });
