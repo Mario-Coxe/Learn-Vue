@@ -24,20 +24,20 @@
   <body>
     <h1>'v-bind' Example</h1>
     <div id="app">
-      <div v-bind:class="{ myClass: isActive }">
+      <div :class="{ myClass: isActive }">
         Importance visualized by background color
       </div>
 
       <div
-        v-bind:style="{backgroundColor: isImportant ? 'lightcoral' : 'lightgray' }"
+        :style="{backgroundColor: isImportant ? 'lightcoral' : 'lightgray' }"
       >
         Text example
       </div>
-      <p v-bind:class="vueClass">
+      <p :class="vueClass">
         The browser finds the 'src' attribute value from the Vue instance with
         the use of 'v-bind'.
       </p>
-      <img v-bind:src="url" />
+      <img :src="url" />
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -50,7 +50,7 @@
             url: "./img/image.png",
             size: 20,
             isImportant: false,
-            isActive: false,
+            isActive: true,
           };
         },
       });
