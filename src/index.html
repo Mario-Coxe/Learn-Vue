@@ -39,7 +39,7 @@
       <div>
         <img v-bind:src="imgUrl" alt="" />
         <ol>
-          <li v-for="food in manyFoods" v-on:click="imgUrl = food.url">
+          <li v-for="food in manyFoods" @:click="imgUrl = food.url">
             {{ food.name }}
           </li>
         </ol>
