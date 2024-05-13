@@ -2,42 +2,13 @@
 <html>
   <head>
     <title>My first Vue page</title>
-    <style>
-      div {
-        width: 200px;
-        padding: 20px;
-        border: dashed black 1px;
-        /* background-color: lightcoral; */
-      }
-
-      img {
-        width: 50%;
-      }
-      .yellow {
-        background-color: yellow;
-      }
-      .myClass {
-        background-color: lightcoral;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
     <h1>'v-bind' Example</h1>
     <div id="app">
-      <div :class="{ myClass: isActive }">
-        Importance visualized by background color
-      </div>
-
-      <div
-        :style="{backgroundColor: isImportant ? 'lightcoral' : 'lightgray' }"
-      >
-        Text example
-      </div>
-      <p :class="vueClass">
-        The browser finds the 'src' attribute value from the Vue instance with
-        the use of 'v-bind'.
-      </p>
-      <img :src="url" />
+      <p v-if="typewritersInStock">in stock</p>
+      <p v-else>not in stock</p>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -46,11 +17,7 @@
       const app = Vue.createApp({
         data() {
           return {
-            vueClass: "yellow",
-            url: "./img/image.png",
-            size: 20,
-            isImportant: false,
-            isActive: true,
+            typewritersInStock: false,
           };
         },
       });
