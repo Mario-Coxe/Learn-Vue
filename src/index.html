@@ -2,48 +2,13 @@
 <html>
   <head>
     <title>My first Vue page</title>
-    <style>
-      #app {
-        border: dashed black 1px;
-        width: 220px;
-        padding: 20px;
-      }
-
-      img {
-        height: 60%;
-        width: 60%;
-      }
-
-      li:hover {
-        cursor: pointer;
-        background-color: rgb(224, 224, 224);
-      }
-
-      #app > ol {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      #app li {
-        padding-left: 6px;
-        border-radius: 5px;
-        width: 70px;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
-    <h1>'v-bind' Example</h1>
+    <h1>Methods Example</h1>
     <div id="app">
-      <p>Move the mouse pointer over the box below</p>
-      <div>
-        <img v-bind:src="imgUrl" alt="" />
-        <ol>
-          <li v-for="food in manyFoods" @:click="imgUrl = food.url">
-            {{ food.name }}
-          </li>
-        </ol>
-      </div>
+      <button v-on:click="writeText">clique aqui</button>
+      <p>{{text}}</p>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -52,14 +17,13 @@
       const app = Vue.createApp({
         data() {
           return {
-            imgUrl: "./img/image.png",
-            manyFoods: [
-              { name: "Burrito", url: "./img/image1.png" },
-              { name: "Salad", url: "./img/image2.png" },
-              { name: "Cake", url: "./img/image3.png" },
-              { name: "Soup", url: "./img/image4.png" },
-            ],
+            text: ''
           };
+        },
+        methods: {
+          writeText() {
+            this.text = "Hello Wrold!";
+          },
         },
       });
       app.mount("#app");
