@@ -8,7 +8,8 @@
     <h1>Methods Example</h1>
 
     <div id="app">
-      <button v-on:click="addAnimal($event, 5)" id="buttonMore5">+5</button>
+      <input v-on:keydown="getKey" />
+      <p>{{ keyValue }}</p>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -16,15 +17,12 @@
     <script>
       const app = Vue.createApp({
         data() {
-          return {
-            tigers: 0,
-          };
+          return {};
         },
         methods: {
-          addAnimal(e, number) {
-            this.tigers = this.tigers + number;
-            console.log(e.target.id);
-            console.log(this.tigers);
+          getKey(evt) {
+            this.keyValue = evt.key;
+            console.log(evt.key);
           },
         },
       });
