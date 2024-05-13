@@ -8,7 +8,7 @@
     <h1>Methods Example</h1>
 
     <div id="app">
-      <textarea v-on:input="writeText" placeholder="Start writing.."></textarea>
+      <button v-on:click="addAnimal($event, 5)" id="buttonMore5">+5</button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -17,13 +17,14 @@
       const app = Vue.createApp({
         data() {
           return {
-            text: "",
+            tigers: 0,
           };
         },
         methods: {
-          writeText(event) {
-            this.text = event.target.value;
-            console.log(this.text);
+          addAnimal(e, number) {
+            this.tigers = this.tigers + number;
+            console.log(e.target.id);
+            console.log(this.tigers);
           },
         },
       });
