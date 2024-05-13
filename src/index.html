@@ -7,8 +7,7 @@
   <body>
     <h1>'v-bind' Example</h1>
     <div id="app">
-      <p v-if="text.includes('pizza')">The text includes the word 'pizza'</p>
-      <p v-else>The word 'pizza' is not found in the text</p>
+      <div v-show="showDiv">This div tag can be hidden</div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -17,14 +16,11 @@
       const app = Vue.createApp({
         data() {
           return {
-            text: 'I like taco, pizza, Thai beef salad, pho soup and tagine.'
+            showDiv: true,
           };
         },
-        methods: {
-        
-        },
+        methods: {},
       });
-
       app.mount("#app");
     </script>
   </body>
