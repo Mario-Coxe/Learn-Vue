@@ -16,8 +16,11 @@
   <body>
     <h1>'v-bind' Example</h1>
     <div id="app">
-      <input v-on:input="inpCount++" />
-      <p>{{ 'Input events occured: ' + inpCount }}</p>
+      <p>Move the mouse pointer over the box below</p>
+      <div
+        v-on:mousemove="colorVal=Math.floor(Math.random()*360)"
+        v-bind:style="{backgroundColor:'hsl('+colorVal+',80%,80%)'}"
+      ></div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -26,7 +29,7 @@
       const app = Vue.createApp({
         data() {
           return {
-            inpCount: 0,
+            colorVal: 50
           };
         },
         methods: {},
