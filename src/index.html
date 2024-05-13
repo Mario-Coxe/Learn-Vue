@@ -7,8 +7,9 @@
   <body>
     <h1>'v-bind' Example</h1>
     <div id="app">
-      <div v-show="showDiv">Div tag with v-show</div>
-      <div v-if="showDiv">Div tag with v-if</div>
+      <ol>
+        <li v-for="x in manyFoods">{{ x }}</li>
+      </ol>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -17,7 +18,15 @@
       const app = Vue.createApp({
         data() {
           return {
-            showDiv: true,
+            manyFoods: [
+              "Burrito",
+              "Salad",
+              "Cake",
+              "Soup",
+              "Fish",
+              "Pizza",
+              "Rice",
+            ],
           };
         },
         methods: {},
