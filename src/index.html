@@ -2,14 +2,35 @@
 <html>
   <head>
     <title>My first Vue page</title>
-    <style></style>
+    <style>
+      #app > div {
+        border: solid black 1px;
+        width: 80%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      h4 {
+        width: 80px;
+        padding: 10px;
+        margin: 10px;
+        background-color: lightskyblue;
+        border-radius: 5px;
+      }
+
+      p {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <h1>'v-bind' Example</h1>
     <div id="app">
-      <ol>
-        <li v-for="x in manyFoods">{{ x }}</li>
-      </ol>
+      <div v-for="(x, index) in manyFoods">
+        <h4>{{index}} : {{x.name}}</h4>
+        <p>{{ x.type }}</p>
+      </div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -19,13 +40,13 @@
         data() {
           return {
             manyFoods: [
-              "Burrito",
-              "Salad",
-              "Cake",
-              "Soup",
-              "Fish",
-              "Pizza",
-              "Rice",
+              { name: "Burrito", type: "type1" },
+              { name: "Salad", type: "type2" },
+              { name: "Cake", type: "type3" },
+              { name: "Soup", type: "type4" },
+              { name: "Fish", type: "type5" },
+              { name: "Pizza", type: "type6" },
+              { name: "Rice", type: "type7" },
             ],
           };
         },
