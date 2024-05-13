@@ -21,7 +21,11 @@
   <body>
     <h1>'v-bind' Example</h1>
     <div id="app">
-      <div v-bind:style="{ fontSize: size + 'px' }">Text example</div>
+      <div
+        v-bind:style="{backgroundColor: isImportant ? 'lightcoral' : 'lightgray' }"
+      >
+        Text example
+      </div>
       <p v-bind:class="vueClass">
         The browser finds the 'src' attribute value from the Vue instance with
         the use of 'v-bind'.
@@ -35,9 +39,10 @@
       const app = Vue.createApp({
         data() {
           return {
-            size: 20,
             vueClass: "yellow",
             url: "./img/image.png",
+            size: 20,
+            isImportant: false,
           };
         },
       });
