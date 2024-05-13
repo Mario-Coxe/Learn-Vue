@@ -11,26 +11,13 @@
         flex-wrap: wrap;
         justify-content: space-around;
       }
-      h4 {
-        width: 80px;
-        padding: 10px;
-        margin: 10px;
-        background-color: lightskyblue;
-        border-radius: 5px;
-      }
-
-      p {
-        text-align: center;
-      }
     </style>
   </head>
   <body>
     <h1>'v-bind' Example</h1>
     <div id="app">
-      <div v-for="(x, index) in manyFoods">
-        <h4>{{index}} : {{x.name}}</h4>
-        <p>{{ x.type }}</p>
-      </div>
+      <p>{{ "Moose count: " + count }}</p>
+      <button v-on:click="count++">Count moose</button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -39,18 +26,12 @@
       const app = Vue.createApp({
         data() {
           return {
-            manyFoods: [
-              { name: "Burrito", type: "type1" },
-              { name: "Salad", type: "type2" },
-              { name: "Cake", type: "type3" },
-              { name: "Soup", type: "type4" },
-              { name: "Fish", type: "type5" },
-              { name: "Pizza", type: "type6" },
-              { name: "Rice", type: "type7" },
-            ],
+            count: 0,
           };
         },
-        methods: {},
+        methods: {
+          
+        },
       });
       app.mount("#app");
     </script>
