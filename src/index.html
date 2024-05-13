@@ -17,7 +17,12 @@
     <h1>'v-bind' Example</h1>
     <div id="app">
       <p>{{ "Moose count: " + count }}</p>
-      <button v-on:click="countUp">Count moose</button>
+      <button
+        v-on:click="countUp"
+        v-bind:style="{backgroundColor: isActive ? 'yellow' : 'lightgray' }"
+      >
+        Count moose
+      </button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -27,11 +32,13 @@
         data() {
           return {
             count: 0,
+            isActive: false,
           };
         },
         methods: {
           countUp() {
             this.count++;
+            this.isActive =!this.isActive;
           },
         },
       });
