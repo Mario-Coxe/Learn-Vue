@@ -8,8 +8,23 @@
     <h1>Methods Example</h1>
 
     <div id="app">
-      <input type="text" v-model="inputText" />
-      <p>{{inputText}}</p>
+      <p>Adicione Item</p>
+      <p>Itme name: <input v-model="name" /></p>
+      <p>Itme value: <input v-model="value" /></p>
+      <p>
+        Important?
+        <label>
+          <input type="checkbox" v-model="itemImportant" />
+          {{ important }}
+        </label>
+      </p>
+      <button @click="addItem(name, value ,itemImportant)">Add Item</button>
+
+      <ul>
+        <li v-for="item in listItens">
+          <p>{{item.name}} - {{item.value}} - {{item.itemImportant}}</p>
+        </li>
+      </ul>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -17,10 +32,18 @@
       const app = Vue.createApp({
         data() {
           return {
-            inputText: "",
+            name: "",
+            value: "",
+            itemImportant: null,
+            listItens: [],
           };
         },
-        methods: {},
+        methods: {
+          addItem(name, value, itemImportant) {
+            //console.log(name, value, itemImportant);
+            this.listItens.push({ name, value, itemImportant });
+          },
+        },
       });
       app.mount("#app");
     </script>
