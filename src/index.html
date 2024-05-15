@@ -8,16 +8,8 @@
     <h1>Methods Example</h1>
 
     <div id="app">
-      <form v-on:submit.prevent="addItem">
-        <input type="text" v-model="itemName" placeholder="Nome" />
-        <input type="number" v-model="itemNumber" placeholder="Número" />
-        <button type="submit">Add item</button>
-        <ul>
-          <li v-for="item in shoppingList">
-            {{ item.name }} - {{ item.number }}
-          </li>
-        </ul>
-      </form>
+      <input type="text" v-model="inputText" />
+      <p>{{inputText}}</p>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -25,23 +17,10 @@
       const app = Vue.createApp({
         data() {
           return {
-            itemName: null,
-            itemNumber: null,
-            shoppingList: [],
+            inputText: "",
           };
         },
-        methods: {
-          addItem() {
-            this.shoppingList.push({
-              name: this.itemName,
-              number: this.itemNumber,
-            });
-
-            console.log(this.shoppingList);
-            this.itemName = null;
-            this.itemNumber = null;
-          },
-        },
+        methods: {},
       });
       app.mount("#app");
     </script>
