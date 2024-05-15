@@ -1,60 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>My first Vue page</title>
-    <style>
-      .impClass {
-        background-color: rgb(255, 202, 202);
-      }
-      .yelClass {
-        color: brown;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Methods Example</h1>
-    <div id="app">
-      <label>
-        <p>Type a valid e-mail address:</p>
-        <input type="email" v-model="inpAddress" />
-      </label>
-      <p v-bind:class="myClass"><code>{{ feedbackText }}</code></p>
-    </div>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-      const app = Vue.createApp({
-        data() {
-          return {
-            inpAddress: "",
-            feedbackText: "",
-            myClass: "invalid",
-          };
-        },
-        methods: {
-          inpAddress: "",
-          feedbackText: "",
-          myClass: "invalid",
-        },
-        computed: {},
-        watch: {
-          inpAddress(otherNew, otherOld, testValue) {
-            console.log("otherNew > ", otherNew);
-            console.log("otherOld > ", otherOld);
-            // console.log("otherOld > ", testValue);
-
-            if (!otherNew.includes("@")) {
-              this.feedbackText = "The e-mail address is NOT valid";
-              this.myClass = "invalid";
-            } else if (!otherOld.includes("@") && otherNew.includes("@")) {
-              this.feedbackText = "Perfect! You fixed it!";
-              this.myClass = "valid";
-            } else {
-              this.feedbackText = "The e-mail address is valid :)";
-            }
-          },
-        },
-      });
-      app.mount("#app");
-    </script>
-  </body>
-</html>
+<div id="app"></div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  const app = Vue.createApp({
+    template: `<h1>{{ message }}</h1>
+      <p>This is a second line of HTML code, inside backtick quotes</p>`,
+    data() {
+      return {
+        message: "Hello World!",
+      };
+    },
+  });
+  app.mount("#app");
+</script>

@@ -1,80 +1,29 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <h1>Food</h1>
+  <div id="wrapper">
+    <food-item  food-desc="Apples are a type of fruit that grow on trees." :is-favorite="false" />
+    <food-item food-name="Pizza" food-desc="Pizza has a bread base with tomato sauce, cheese, and toppings on top."
+      :is-favorite="true" />
+    <food-item food-name="Rice" food-desc="Rice is a type of grain that people like to eat." :is-favorite="false" />
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+
+<script lang="ts">
+
+</script>
+
+
+<style>
+#wrapper {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+#wrapper>div {
+  border: dashed black 1px;
+  margin: 10px;
+  padding: 10px;
+  background-color: lightgreen;
 }
 </style>
