@@ -14,8 +14,9 @@
   <body>
     <h1>Methods Example</h1>
     <div id="app">
-      <div class="impClass" v-bind:class="{yelClass: isYellow}">
-        This div belongs to both 'impClass' and 'yelClass'.
+      <div v-bind:class="[{ impClass: isImportant }, 'yelClass' ]">
+        This div tag belongs to one or two classes depending on the isImportant
+        property.
       </div>
     </div>
 
@@ -24,7 +25,7 @@
       const app = Vue.createApp({
         data() {
           return {
-            isYellow: true,
+            isImportant: true,
           };
         },
         methods: {},
