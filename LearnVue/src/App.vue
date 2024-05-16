@@ -1,22 +1,30 @@
 <template>
-  <h3>Local Component</h3>
-  <p>The CompOne.vue component is a local component and can only be used inside App.vue.</p>
-  <comp-one />
-  <comp-two />
+  <h1>Dynamic Components</h1>
+  <p>App.vue switches between which component to show.</p>
+  <button @click="toggleValue = !toggleValue">Switch component</button>
+  <component :is="activeComp"></component>
 </template>
 
 <script>
-
-import CompOne from './components/CompOne.vue';
-
 export default {
-  components: {
-    'comp-one': CompOne
-  }
+  data() {
+    return {
+      toggleValue: true,
+    };
+  },
+  computed: {
+    activeComp() {
+      if (this.toggleValue) {
+        return "comp-one";
+      } else {
 
-}
+        //console.log(this.toggleValue)
+        return "comp-two";
+      }
+    },
+  },
+};
 </script>
-
 
 <style>
 #wrapper {
