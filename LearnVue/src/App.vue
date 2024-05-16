@@ -46,7 +46,10 @@ export default {
       this.foods.splice(1, 1);
     },
     receiveEmit(foodId) {
-      alert('You clicked: ' + foodId);
+      const foundFood = this.foods.find(
+        food => food.name === foodId
+      );
+      foundFood.favorite = !foundFood.favorite;
     }
   }
 }

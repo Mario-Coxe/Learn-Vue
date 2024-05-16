@@ -2,7 +2,7 @@
     <div>
         <h2>
             {{ foodName }}
-            <img src="../../public/qualidade.png" v-show="foodIsFavorite">
+            <img src="../../public/qualidade.png" v-show="isFavorite">
         </h2>
         <p>{{ foodDesc }}</p>
         <button v-on:click="toggleFavorite">Favorite</button>
@@ -12,10 +12,10 @@
 
 export default {
     props: ['foodName', 'foodDesc', 'isFavorite'],
-
+    emits: ['toggle-favorite'],
     data() {
         return {
-            foodIsFavorite: this.isFavorite
+
         }
     },
     methods: {
