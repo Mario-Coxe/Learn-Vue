@@ -2,7 +2,8 @@
   <h1>Food</h1>
   <p>Components created with v-for based on an array.</p>
   <div id="wrapper">
-    <food-item v-for="x in foods" :food-name="x.name" :food-desc="x.desc" :is-favorite="x.favorite" :key="x.name" />
+    <food-item v-for="x in foods" :food-name="x.name" :food-desc="x.desc" :is-favorite="x.favorite" :key="x.name"
+      @toggle-favorite="receiveEmit" />
     <button @click="removeItem">Remove Item</button>
   </div>
 </template>
@@ -43,7 +44,9 @@ export default {
   methods: {
     removeItem() {
       this.foods.splice(1, 1);
-      console.log(this.foods.splice(1, 1));
+    },
+    receiveEmit(foodId) {
+      alert('You clicked: ' + foodId);
     }
   }
 }
